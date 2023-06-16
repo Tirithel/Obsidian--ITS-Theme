@@ -150,7 +150,31 @@ settings:
         format: px
         min: 10
         max: 50
-        step: 1
+        step: 1    
+    -
+        title: Popover
+        id: ITS-Sizing-Popover
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        title: Popover Width
+        id: popover-width
+        type: variable-number-slider
+        default: 450
+        format: px
+        min: 300
+        max: 1000
+        step: 100
+    -
+        title: Popover Height
+        id: popover-height
+        type: variable-number-slider
+        default: 400
+        format: px
+        min: 300
+        max: 1000
+        step: 100
     -
         title: Settings
         id: ITS-Settings
@@ -493,6 +517,11 @@ settings:
         id: paper
         type: class-toggle
     -
+        title: Writing
+        description: Minimalistic/distraction free layout design for notes.
+        id: writing
+        type: class-toggle
+    -
         title: Text
         id: ITS-Text
         type: heading
@@ -525,18 +554,18 @@ settings:
         level: 3
         collapsed: true
     -
-        title: Text
+        title: Text Font
         description: Changes text font for preview and edit mode. 
         id: default-font
         type: variable-text
         default: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Microsoft YaHei Light', sans-serif"
     -
-        title: Monospace
+        title: Monospace Font
         id: font-monospace
         type: variable-text
         default: "'Fira Code Medium', 'Source Code Pro', monospace"
     -
-        title: Comments
+        title: Comments Font
         id: comment-font
         type: variable-text
         default: "'Fira Code Medium'"
@@ -603,7 +632,7 @@ settings:
         type: class-toggle
     -
         title: Center Images
-        description: Center ALL images.
+        description: Center ALL images, excluding those with |left or |right in them.
         id: img-adj-center
         type: class-toggle
     -
@@ -1567,6 +1596,10 @@ settings:
         title: Wide Table
         description: Tables widened to touch ends of the page
         id: tables-wide
+        type: class-toggle    
+    - 
+        title: Disable Row Hover Highlight
+        id: tables-no-hover
         type: class-toggle
     -
         title: Table Header Adjustments
@@ -1679,6 +1712,12 @@ settings:
         description: Hide the horizontal Line Symbol entirely
         id: hr-no-icon
         type: class-toggle
+    -
+        title: Horizontal Line Symbol 
+        id: ITS-HR-Line-Symbol
+        type: heading
+        level: 3
+        collapsed: true        
     - 
         title: Horizontal Line Symbol
         description: Add quotations around symbol ("⚡"). Use the codepoint for symbols from supported font icons ("\e800").
@@ -1876,6 +1915,13 @@ settings:
         opacity: true
         default-dark: '#001c4a15'
         default-light: '#001c4a15'
+    -
+        title: Popover Background Color
+        id: popover-background
+        type: variable-themed-color
+        format: rgb
+        default-dark: '#1a1e24'
+        default-light: '#f8fbff'
     -
         title: Note Elements
         id: Note-Element-Colors
@@ -2384,6 +2430,10 @@ settings:
         type: heading
         level: 1
         collapsed: true
+    -
+        title: Disable ITS Styled Statblocks
+        id: default-statblock
+        type: class-toggle
     -
         title: Breadcrumbs Box Style
         id: breadcrumbs-block
